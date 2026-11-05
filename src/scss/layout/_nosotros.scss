@@ -1,0 +1,116 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.container-fluid1 {
+    /* El contenedor fluido agrupa todo el fondo */
+    width: 100%;
+    background-image: url(/./build/img/backgrund.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.nosotros-contenedor {
+    @include m.contenedor;
+    
+    padding: 6rem 1rem 4rem 1rem; 
+    
+    margin-top: 15rem;
+    @include m.phone {
+        @include m.grid(1, 3rem);
+    }
+    @include m.tablet {
+        @include m.grid(1, 4rem);
+        padding: 8rem 2rem 6rem 2rem;
+    }
+    @include m.desktop {
+        @include m.grid(2, 5rem);
+        padding: 10rem 2rem 10rem 2rem;
+    }
+
+    .contenido {
+        // text-align: left;
+        text-align: left;
+            font-family: v.$Fuente_secundaria;
+        .nosotros-texto {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+            text-align: left;
+            @include m.tablet { font-size: 3rem; }
+            @include m.desktop { font-size: 3.5rem; }
+            
+            .span {
+                font-size: 1.2rem;
+                font-weight: bold;
+                background-color:rgba(127,0,255,.3) ;
+                width: fit-content;
+                padding: .5rem .8rem;
+                padding-left: 1rem;
+                border-radius: 20px;
+                margin-bottom: 1.5rem;
+                color: v.$gris;
+                @include m.desktop { 
+                    font-size: 1.5rem; 
+                }
+            }
+            .span1 {
+                color: v.$marino1;
+            }
+        }
+
+        
+
+        .nosotros-informacion {
+            margin-top: 1.5rem;
+            padding-left: 2rem; 
+            
+            li {
+                margin-bottom: 0.8rem;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    .nosotros-imagen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .huesero {
+            overflow: hidden;
+            width: 100%;
+            max-width: 280px; 
+            
+            @include m.tablet { max-width: 350px; }
+            @include m.desktop { max-width: 400px; }
+            
+            object-fit: cover;
+            border-radius: 40% 60% 55% 35% / 40% 35% 65% 60%;
+            background-color: #fff;
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 1);
+            transition:  transform .3s ease-in-out;
+            &:hover{
+                transform: scale(105%);
+
+            }
+        }
+        &::after{
+            content: 'Kinesiologo | Healthcoach';
+            position: absolute;
+            min-width: 22rem;
+            min-height: 6rem;
+            background-color: rgba(25, 62, 98, .9);
+            bottom: 80px;
+            right: 40px;
+            border-radius: 10px;
+            padding: 1rem;
+            font-family: v.$Fuente_tercera;
+            color: whitesmoke;
+            font-size: 1.5rem;
+            text-align: center;
+            align-content: center;
+        }
+    }
+}

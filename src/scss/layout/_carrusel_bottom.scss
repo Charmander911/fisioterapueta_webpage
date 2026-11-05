@@ -1,0 +1,8 @@
+@use 'base/variables' as v;
+.info-servicios {
+    background-color: v.$terracota;
+    margin-top: -6rem;
+    position: relative;
+    z-index: 2;
+    font-family: v.$Fuente_secundaria;
+}

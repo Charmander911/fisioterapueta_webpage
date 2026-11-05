@@ -1,0 +1,208 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.lineup {
+    // background-color: v.$gris-light;
+    margin-top: 7rem;
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        align-items: center;
+        position: relative;
+        // font-family: v.$Fuente_secundaria;
+        p{
+            // font-size: 1.8rem;
+            text-align: center;
+            color: v.$gris;
+            font-weight: 200;
+        }
+        h2{
+            font-weight: 500;
+            font-family: v.$Fuente_secundaria;
+            font-size: clamp(3.5rem, 4vw, 5rem);
+            margin-bottom: 0;
+        }
+        
+        
+    }
+    &-title {
+        font-size: clamp(2.8rem, 4vw, 4.5rem);
+        font-family: v.$Fuente_secundaria;
+        
+        
+    }
+
+    .especialidades {
+        width: 100%;
+        overflow: hidden;
+        mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+
+        &:hover .especialidades-track {
+            animation-play-state: paused;
+        }
+    }
+
+    .especialidades-track {
+        display: flex;
+        width: max-content;
+        animation: scroll-especialidades 20s linear infinite;
+        will-change: transform;
+    }
+
+    .especialidades-group {
+        display: flex;
+        flex: 0 0 auto;
+        gap: 2.5rem;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .especialidad-card {
+        width: clamp(20rem, 24vw, 25rem);
+        min-height: 22rem;
+        flex: 0 0 auto;
+        background-color: v.$blanco;
+        transition: transform .25s ease, box-shadow .25s ease;
+
+        &:hover {
+            transform: translateY(-.5rem);
+            box-shadow: 0 1rem 2.5rem rgba(15, 23, 42, .12) !important;
+        }
+    }
+
+    .especialidad-icon {
+        display: grid;
+        width: 7rem;
+        height: 7rem;
+        flex: 0 0 7rem;
+        margin-bottom: 1rem;
+        place-items: center;
+        background-color: rgba(v.$verde, .1);
+        border: 1px solid rgba(v.$verde, .2);
+        box-shadow: 0 .5rem 1.5rem rgba(46, 98, 67, .1);
+
+        img {
+            width: 3.5rem;
+            height: 3.5rem;
+            object-fit: contain;
+        }
+    }
+
+    .especialidad-title {
+        color: v.$marron;
+        line-height: 1.4;
+    }
+}
+
+@keyframes scroll-especialidades {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marcas {
+    --color-acento: #ba8e42; /* O el #16a34a que tenías */
+    width: 100%;
+    
+    /* Máscara de desvanecimiento en los bordes izquierdo y derecho */
+    mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+
+    &:hover .marcas-track {
+        animation-play-state: paused;
+    }
+
+    &-track {
+        width: max-content;
+        animation: scroll-marcas 30s linear infinite;
+        will-change: transform;
+        
+        @include m.phone { animation-duration: 24s; }
+        @include m.desktop { animation-duration: 35s; }
+    }
+
+    &-group {
+        flex: 0 0 100cqw;
+        gap: 2rem;
+        padding: 1rem;
+
+        @include m.phone { gap: 1.2rem; }
+        @include m.tablet { gap: 2.5rem; }
+        @include m.desktop { gap: 3rem; }
+    }
+
+    .brand {
+        flex: 1 0 0;
+        min-width: 250px; /* Evita que las tarjetas colapsen */
+        box-shadow: 0 8px 25px rgba(15, 23, 42, .04);
+        transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+
+        span {
+            max-width: 18rem;
+            font-size: 1.25rem;
+            transition: color .3s ease;
+            
+            @include m.tablet { font-size: 1.35rem; }
+        }
+
+        .brand-icon {
+            width: 8rem;
+            height: 8rem;
+            background: #f8f9fa; /* Fondo gris claro tipo Bootstrap bg-light */
+            transition: background .3s ease, transform .3s ease;
+            
+            @include m.phone { 
+                width: 6rem; 
+                height: 6rem; 
+            }
+        }
+
+        /* Efectos Hover */
+        &:hover {
+            transform: translateY(-0.5rem);
+            border-color: rgba(186, 142, 66, 0.4) !important; /* Tu color de acento o Bootstrap success */
+            box-shadow: 0 15px 35px rgba(15, 23, 42, .09);
+
+            span {
+                color: var(--color-acento) !important;
+            }
+
+            .brand-icon {
+                background: rgba(186, 142, 66, 0.1); /* Fondo sutil al hacer hover */
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+@keyframes scroll-marcas {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+// Preferencia de accesibilidad (Sin cambios, está perfecta)
+@media (prefers-reduced-motion: reduce) {
+    .lineup .especialidades {
+        overflow-x: auto;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+    .lineup .especialidades-track {
+        animation: none;
+        will-change: auto;
+    }
+    .lineup .especialidades-group[aria-hidden="true"] {
+        display: none;
+    }
+    .marcas-track {
+        animation: none;
+        will-change: auto;
+    }
+    .marcas-group[aria-hidden="true"] {
+        display: none;
+    }
+}

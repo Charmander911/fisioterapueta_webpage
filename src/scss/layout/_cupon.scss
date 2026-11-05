@@ -1,0 +1,40 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.cupon{
+    background-color: v.$morado;
+    // background-image: url(/./build/img/video/cupon.mp4);
+    @include m.contenedor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    
+    
+    .formulario {
+        // background-color: red;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        .form{
+            padding: 1rem;
+            input{
+                padding: 1rem;
+                outline: none;
+                border: none;
+                border-radius: 20px;
+                position: relative;
+                background: v.$rosa;
+                color: white;
+            }
+
+        }
+        img{
+            width: 2rem;
+            height: 3rem;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.agendas {
+    @include m.contenedor;
+    margin-top: 10rem;
+    box-sizing: border-box;
+    .agenda {
+        @include m.grid(2);
+        height: auto;
+        
+        
+        @include m.phone {
+            @include m.grid(1);
+        }
+
+        .llamada{
+            // background-color: blue;
+            font-family: v.$Fuente_secundaria;
+            border-radius: 20px;
+            // border: 1px solid whitesmoke;
+            padding: 2rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            transition: transform .3s ease-in;
+            overflow: hidden;
+            
+            .call{
+                pointer-events: none;
+                display: flex;
+                // align-items: end;
+                flex-direction: column;
+                font-size: 2.5rem;
+                font-weight: 500;
+                gap: 2rem;
+                p {
+                    color: aliceblue;
+                }
+                img{
+                    width: 5rem;
+                    background-color: v.$marino;
+                    padding: .5rem;
+                    border-radius: 15px;
+                }
+            }
+            .parrafos, .p {
+                color: lavender;
+                font-size: 1.4rem;
+                pointer-events: none;
+                
+                ul li {
+                    list-style:circle;
+                }
+            }
+
+            &:hover{
+                transform: scale(1.05);
+                box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
+                outline: none;
+            }
+            
+        }
+
+    }
+    .agenda div:first-child {
+        background: radial-gradient(ellipse at bottom right,orangered, red,red, firebrick);
+        // filter: blur(1px);
+    }
+    .agenda div:last-child {
+        // background-color: lightsalmon;
+        background: radial-gradient(ellipse at bottom left,orangered, red,red, firebrick);
+        // backdrop-filter: blur(5px);
+    }
+    
+}
+

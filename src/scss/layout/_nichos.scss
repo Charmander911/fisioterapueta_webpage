@@ -1,0 +1,450 @@
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.nichos {
+    @include m.contenedor;
+    font-family: v.$Fuente_secundaria;
+    // background-color: whitesmoke;
+
+    &-contenedor {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 2vw, 2rem);
+        width: 100%;
+
+        // Evita que los elementos provoquen desbordamientos
+        > * {
+            min-width: 0;
+        }
+
+        // Móviles
+        @include m.phone {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        // Tablets
+        @include m.tablet {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        // Escritorio
+        @include m.desktop {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .nicho-grid {
+            background-color: floralwhite;
+            outline: none;
+            min-width: 0;
+        }
+
+        // Nicho 1 y 2
+        .nicho-1,
+        .nicho-2,
+        .nicho-4,
+        .nicho-5 {
+            min-width: 0;
+            border: 1px solid gainsboro;
+            .contenedor-nicho,
+            .contenedor-nicho2, 
+            .contenedor-nicho4,
+            .contenedor-nicho5 {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                padding: clamp(1rem, 2vw, 2rem);
+                min-width: 0;
+            }
+
+            // Encabezados
+            .contenido-header,
+            .contenido-header2,
+            .contenido-header4,
+            .contenido-header5 {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.5rem;
+                line-height: 1.2;
+                padding: 0 1rem;
+                margin-bottom: 1.5rem;
+
+                img {
+                    width: clamp(4rem, 6vw, 6rem);
+                    height: clamp(4rem, 6vw, 6rem);
+                    flex-shrink: 0;
+                    object-fit: contain;
+                    margin: 0;
+                    background-color: palegoldenrod;
+                    padding: .7rem;
+                    border-radius: 50%;
+                }
+
+                section {
+                    flex: 1;
+                    min-width: 0;
+
+                    span {
+                        font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+                        font-weight: 200;
+                    }
+                }
+            }
+
+            // Contenido de las tarjetas
+            .contenido-body,
+            .contenido-body2, 
+            .contenido-body4,
+            .contenido-body5 {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1rem;
+                padding: .5rem;
+                user-select: none;
+                
+
+                .contenido-grid {
+                    min-width: 0;
+                    background-color: mistyrose;
+                    padding: clamp(1rem, 1.5vw, 1.5rem);
+                    // border-radius: 10px;
+                    transition: background-color .2s ease;
+
+                    p {
+                        font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+                        font-weight: 600;
+                        overflow-wrap: anywhere;
+                        pointer-events: none;
+                    }
+
+                    ul {
+                        font-size: clamp(1rem, 1.2vw, 1.2rem);
+                        list-style: circle;
+                        padding-left: 1.5rem;
+                        pointer-events: none;
+
+                        li {
+                            align-self: auto;
+                            overflow-wrap: anywhere;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: white;
+                    }
+                }
+            }
+        }
+
+        // Ajustes específicos del nicho 2
+        .nicho-2 {
+
+            .contenido-body2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contenido-grid-foter {
+                // padding: rem;
+                .footer-img {
+
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: row;
+                    font-size: clamp(1rem, 1.1vw, 1.1rem);
+                    margin: 0;
+                    // padding: 2rem 1rem 0;
+                    padding: .3rem 1rem;
+                    gap: .5rem;
+                    margin-top: 1rem;
+                    // flex-wrap: wrap;
+                    background-color: lightblue;
+                    border-radius: 20px;
+                    color: v.$negro;
+                    img {
+                        width: 2.5rem;
+                    }
+                    
+                }
+            }
+        }
+
+        // Nicho 3 ocupa las dos columnas
+        .nicho-3 {
+            grid-column: 1 / -1;
+            background-color: floralwhite;
+            min-width: 0;
+            border: 1px solid gainsboro;
+
+            .contenedor-nicho3 {
+                width: 100%;
+                margin: 0 auto;
+                padding: clamp(1rem, 2vw, 2rem);
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                min-width: 0;
+            }
+
+            .contenido-header3 {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.5rem;
+                line-height: 1.2;
+                padding: 0 1rem;
+                margin-bottom: 1rem;
+                text-align: end;
+
+                img {
+                    width: clamp(4rem, 6vw, 6rem);
+                    height: clamp(4rem, 6vw, 6rem);
+                    flex-shrink: 0;
+                    object-fit: contain;
+                    margin: 0;
+                    background-color: palegoldenrod;
+                    padding: .7rem;
+                    border-radius: 50%;
+                }
+
+                section {
+                    span {
+                        font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+                        font-weight: 200;
+                    }
+                }
+            }
+
+            .contenido-body3 {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1rem;
+                padding: .5rem;
+                margin: 0 auto;
+                flex: 1;
+                min-width: 0;
+                user-select: none;
+
+                .contenido-grid {
+                    min-width: 0;
+                    background-color: mistyrose;
+                    padding: clamp(1rem, 1.5vw, 1.5rem);
+                    // border-radius: 10px;
+                    transition: background-color .2s ease;
+
+                    p {
+                        font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+                        font-weight: 600;
+                        pointer-events: none;
+                    }
+
+                    ul {
+                        font-size: clamp(1rem, 1.2vw, 1.2rem);
+                        list-style: circle;
+                        padding-left: 1.5rem;
+                        pointer-events: none;
+
+                        li {
+                            align-self: auto;
+                            overflow-wrap: anywhere;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: white;
+                    }
+                }
+            }
+
+            .contenido-grid-foter {
+                font-size: clamp(1rem, 1.1vw, 1.1rem);
+                margin: 0;
+                padding-top: 2rem;
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+
+        .nicho-4 {
+            .contenido-body4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            
+        }
+        .nicho-5 {
+            .contenido-body5 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .contenido-grid {
+                .img {
+                    display: flex;
+                    object-fit: cover;
+                    justify-content: center;
+
+                }
+                .contenido-img {
+                    color: v.$gris;
+                    text-align: center;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                }
+                .contenido-img {
+                    width: 10rem;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+
+        @include m.tablet {
+
+            .nicho-1,
+            .nicho-2 {
+                .contenido-body {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+
+                .contenido-body2 {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            .nicho-3 {
+                .contenedor-nicho3 {
+                    align-items: stretch;
+                    @include m.phone {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    @include m.tablet {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    @include m.desktop {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                }
+
+                .contenido-header3 {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 1rem;
+                }
+
+                .contenido-body3 {
+
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    width: 100%;
+                }
+            }
+        }
+
+
+        @include m.phone {
+
+            .nicho-1,
+            .nicho-2 {
+                .contenedor-nicho,
+                .contenedor-nicho2 {
+                    padding: 1rem;
+                }
+
+                .contenido-header,
+                .contenido-header2 {
+                    justify-content: flex-start;
+                    gap: 1rem;
+                    padding: 0;
+
+                    img {
+                        width: 4rem;
+                        height: 4rem;
+                    }
+
+                    section {
+                        span {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+
+                .contenido-body,
+                .contenido-body2 {
+                    grid-template-columns: 1fr;
+                    gap: 1rem;
+
+                    .contenido-grid {
+                        padding: 1.2rem;
+
+                        p {
+                            font-size: 1.2rem;
+                        }
+
+                        ul {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .nicho-2 {
+                .contenido-grid-foter {
+                    padding-top: 1rem;
+                }
+            }
+
+            .nicho-3 {
+                grid-column: 1 / -1;
+
+                .contenedor-nicho3 {
+                    flex-direction: column;
+                    align-items: stretch;
+                    padding: 1rem;
+                    gap: 1rem;
+                }
+
+                .contenido-header3 {
+                    justify-content: flex-start;
+                    text-align: left;
+                    padding: 0;
+                    gap: 1rem;
+
+                    img {
+                        width: 4rem;
+                        height: 4rem;
+                    }
+
+                    section {
+                        span {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+
+                .contenido-body3 {
+                    grid-template-columns: 1fr;
+                    width: 100%;
+                    gap: 1rem;
+
+                    .contenido-grid {
+                        padding: 1.2rem;
+
+                        p {
+                            font-size: 1.2rem;
+                        }
+
+                        ul {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                .contenido-grid-foter {
+                    padding-top: 1rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>Icono de masaje en blanco y negro</title>
+  <desc>Ilustración vectorial con contornos negros gruesos y rellenos blancos sobre fondo transparente.</desc>
+  <g stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Cabeza del terapeuta -->
+    <circle cx="278" cy="129" r="19" fill="#ffffff"/>
+    <!-- Cuerpo y brazos del terapeuta -->
+    <path d="M235 166
+             Q247 157 263 157
+             L284 157
+             Q301 157 313 170
+             L336 194
+             Q344 202 337 212
+             L317 237
+             Q310 246 301 239
+             Q294 233 301 224
+             L316 201
+             L300 185
+             L300 211
+             L258 207
+             L257 186
+             L241 193
+             L251 210
+             Q256 220 247 226
+             Q237 232 231 222
+             L213 194
+             Q207 184 218 178
+             Z" fill="#ffffff"/>
+    <!-- Brazo/mano en contacto con la espalda -->
+    <path d="M214 212
+             Q203 212 198 220
+             Q193 230 202 237
+             Q209 242 222 239
+             L256 237" fill="none"/>
+    <!-- Línea de espalda y cuerpo del paciente -->
+    <path d="M253 220
+             Q267 222 285 232
+             Q296 238 287 248
+             L264 263
+             L236 263" fill="none"/>
+    <path d="M120 260
+             C151 261 181 260 209 258
+             L321 255
+             Q346 255 351 271
+             Q356 287 339 293
+             L120 293
+             Q106 293 106 278
+             Q106 263 120 260 Z" fill="#ffffff"/>
+    <!-- Contorno del pliegue de la toalla/camilla -->
+    <path d="M244 268
+             L318 268
+             Q335 268 338 278
+             Q340 290 326 292
+             L246 292
+             Q232 292 232 280
+             Q232 270 244 268 Z" fill="#ffffff"/>
+    <path d="M246 270 L321 270" fill="none"/>
+    <!-- Cabeza del paciente -->
+    <circle cx="379" cy="269" r="20" fill="#ffffff"/>
+    <!-- Borde de la camilla -->
+    <path d="M109 310 L402 310" fill="none" stroke-width="14"/>
+    <path d="M109 310 L402 310" fill="none" stroke="#ffffff" stroke-width="8"/>
+    <!-- Patas de la camilla -->
+    <path d="M139 322 L139 402" fill="none" stroke-width="7"/>
+    <path d="M371 322 L371 402" fill="none" stroke-width="7"/>
+    <!-- Piernas visibles debajo de la camilla -->
+    <path d="M244 326 L242 379
+             Q242 394 255 397
+             Q269 399 271 383
+             L273 326 Z" fill="#ffffff"/>
+    <path d="M280 326 L282 382
+             Q283 397 296 397
+             Q309 396 309 382
+             L307 326 Z" fill="#ffffff"/>
+  </g>
+</svg>
