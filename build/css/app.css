@@ -12531,7 +12531,7 @@ nav .container-fluid {
   padding: 0 auto;
   font-weight: 200;
 }
-.paquetes-titulo h2 {
+.paquetes-titulo h3 {
   font-family: "DM Sans", sans-serif;
   font-size: clamp(3.5rem, 4vw, 5rem);
   font-weight: 500;
@@ -12736,6 +12736,22 @@ nav .container-fluid {
   max-width: 120rem;
   margin: 0 auto;
   font-family: "DM Sans", sans-serif;
+}
+.nichos-titulo {
+  text-align: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  margin-top: 15rem;
+  margin-bottom: 8rem;
+}
+.nichos-titulo h3 {
+  margin: 0;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+.nichos-titulo p {
+  padding: 0 auto;
+  font-weight: 200;
 }
 .nichos-contenedor {
   display: grid;
@@ -13004,6 +13020,34 @@ nav .container-fluid {
 .nichos-contenedor .nicho-5 .contenido-body4 .contenido-grid:hover,
 .nichos-contenedor .nicho-5 .contenido-body5 .contenido-grid:hover {
   background-color: white;
+}
+.nichos-contenedor .nicho-1 .contenido-precio,
+.nichos-contenedor .nicho-2 .contenido-precio,
+.nichos-contenedor .nicho-4 .contenido-precio,
+.nichos-contenedor .nicho-5 .contenido-precio {
+  display: flex;
+  margin: 0 auto;
+  justify-content: end;
+  margin-top: 0.7rem;
+  font-family: "Sansation", sans-serif;
+  padding: 0.5rem;
+  pointer-events: none;
+}
+@media (max-width: 480px) {
+  .nichos-contenedor .nicho-1 .contenido-precio,
+  .nichos-contenedor .nicho-2 .contenido-precio,
+  .nichos-contenedor .nicho-4 .contenido-precio,
+  .nichos-contenedor .nicho-5 .contenido-precio {
+    justify-content: center;
+  }
+}
+.nichos-contenedor .nicho-1 .contenido-precio .precio-nicho span,
+.nichos-contenedor .nicho-2 .contenido-precio .precio-nicho span,
+.nichos-contenedor .nicho-4 .contenido-precio .precio-nicho span,
+.nichos-contenedor .nicho-5 .contenido-precio .precio-nicho span {
+  background-color: crimson;
+  padding: 1rem 1.5rem;
+  color: whitesmoke;
 }
 .nichos-contenedor .nicho-2 .contenido-body2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
