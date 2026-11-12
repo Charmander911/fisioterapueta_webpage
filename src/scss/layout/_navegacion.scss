@@ -2,7 +2,16 @@
 @use "base/mixins" as m;
 
 
+.fixed {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 99999;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
 
+}
 
 nav{
     font-size: 1.5rem;
@@ -27,7 +36,7 @@ nav{
             }
             .btnCita {
                 background-color: v.$dorado;
-                padding: 1rem 5rem;
+                padding: 1rem;
                 border-radius: 5px;
                 color: v.$blanco;
                 

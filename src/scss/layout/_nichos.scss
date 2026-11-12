@@ -1,11 +1,10 @@
 
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
-
+@use 'sass:color';
 .nichos {
     @include m.contenedor;
     font-family: v.$Fuente_secundaria;
-    // background-color: whitesmoke;
     &-titulo {
         text-align: center;
         max-width: 80rem;
@@ -26,8 +25,9 @@
     &-contenedor {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: clamp(1rem, 2vw, 2rem);
+        gap: clamp(1rem, 2vw, 1rem);
         width: 100%;
+        
 
         // Evita que los elementos provoquen desbordamientos
         > * {
@@ -51,7 +51,9 @@
         }
 
         .nicho-grid {
-            background-color: floralwhite;
+            // background-color: floralwhite;
+            // background-color: v.$dorado;
+            background: color.adjust(v.$dorado,  $lightness: 50%, $saturation: 30%);
             outline: none;
             min-width: 0;
         }
@@ -61,8 +63,25 @@
         .nicho-2,
         .nicho-4,
         .nicho-5 {
+            overflow: hidden;
+            position: relative;
+            z-index:4;
+            border-radius: 5px;
+            box-shadow: inset 1px 1px 8px 1px rgba(0,0,0, .03);
+            &::before {
+                content: url(/build/img/icons/ai-agents.svg);
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: scale(12) rotate(120deg);
+                z-index: -2;
+                
+                opacity: .1;
+
+            }
+            
             min-width: 0;
-            border: 1px solid gainsboro;
+            // border: .1mm solid gainsboro;
             .contenedor-nicho,
             .contenedor-nicho2, 
             .contenedor-nicho4,
@@ -83,9 +102,9 @@
                 align-items: center;
                 justify-content: space-between;
                 gap: 1.5rem;
-                line-height: 1.2;
+                line-height: 1;
                 padding: 0 1rem;
-                margin-bottom: 1.5rem;
+                margin-bottom: 2rem;
 
                 img {
                     width: clamp(4rem, 6vw, 6rem);
@@ -106,6 +125,10 @@
                         font-size: clamp(1.2rem, 1.5vw, 1.5rem);
                         font-weight: 200;
                     }
+                    p {
+                        padding-bottom: 0;
+                        margin-bottom: 0;
+                    }
                 }
             }
 
@@ -123,11 +146,14 @@
 
                 .contenido-grid {
                     min-width: 0;
-                    background-color: mistyrose;
+                    // background-color: mistyrose;
+                    background: color.adjust(v.$azul,  $lightness: 10%, $saturation: 30%, $alpha: .5);
+                    box-shadow: inset 1px 1px 8px 1px rgba(0,0,0, .05);
+                    background-color: v.$azul ;
                     padding: clamp(1rem, 1.5vw, 1.5rem);
                     // border-radius: 10px;
                     transition: background-color .2s ease;
-
+                    border-radius: 5px;
                     p {
                         font-size: clamp(1.2rem, 1.5vw, 1.5rem);
                         font-weight: 600;
@@ -148,8 +174,13 @@
                     }
 
                     &:hover {
-                        background-color: white;
+                        background:rgba(255,255,255, .5);
+                        
                     }
+                    .contenido-grid:has(.precio) {
+                        background: none;
+                    }
+                    
                 }
             }
             .contenido-precio{
@@ -176,6 +207,8 @@
                      }
                 }
             }
+
+            
         }
 
         // Ajustes específicos del nicho 2
@@ -192,7 +225,7 @@
                     display: flex;
                     justify-content: space-around;
                     flex-direction: row;
-                    font-size: clamp(1rem, 1.1vw, 1.1rem);
+                    font-size: clamp(1rem, 1.1vw, 1rem);
                     margin: 0;
                     // padding: 2rem 1rem 0;
                     padding: .3rem 1rem;
@@ -213,9 +246,24 @@
         // Nicho 3 ocupa las dos columnas
         .nicho-3 {
             grid-column: 1 / -1;
-            background-color: floralwhite;
+            // background-color: floralwhite;
             min-width: 0;
-            border: 1px solid gainsboro;
+            overflow: hidden;
+            position: relative;
+            z-index:4;
+            box-shadow: inset 1px 1px 8px 1px rgba(0,0,0, .03);
+            border-radius: 5px;
+            
+            &::before {
+                content: '';
+                background: url(/build/img/icons/ai-agents.svg);
+                position: absolute;
+                inset: 0;
+                transform: scale(8) rotate(10deg);
+                z-index: -2;
+                opacity: .1;
+
+            }
 
             .contenedor-nicho3 {
                 width: 100%;
@@ -225,6 +273,23 @@
                 align-items: center;
                 gap: 2rem;
                 min-width: 0;
+            }
+            .precio{
+                grid-column: 3/4;
+                font-family: v.$Fuente_principal;
+                padding: .5rem;
+                margin-left: 1rem;
+                pointer-events: none;
+                @include m.phone {
+                    justify-content: center;
+                }
+                &-nicho {
+                    span {
+                        background-color:crimson;
+                        padding: 1rem 1.5rem;
+                        color: whitesmoke;
+                    }
+                }
             }
 
             .contenido-header3 {
@@ -292,7 +357,7 @@
                     }
 
                     &:hover {
-                        background-color: white;
+                        background:rgba(255,255,255, .5);
                     }
                 }
             }
@@ -329,9 +394,13 @@
                     text-align: center;
                     font-size: 1.4rem;
                     font-weight: 500;
+                    span {
+                        font-size: 1.2rem;
+                        font-weight: 700;
+                    }
                 }
-                .contenido-img {
-                    width: 10rem;
+                img {
+                    width: 6rem;
                     margin: 0 auto;
                 }
             }
@@ -352,6 +421,7 @@
             }
 
             .nicho-3 {
+                
                 .contenedor-nicho3 {
                     align-items: stretch;
                     @include m.phone {

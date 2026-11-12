@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function (){
     // console.log('DOM fully loaded and parsed');
     scrollNavBar();
-
+    navegacionFija();
 });
 
 
@@ -23,23 +23,25 @@ function scrollNavBar(){
 
 
 
-// function navegacionFija(){
-//     const header = document.querySelector('.header');
-//     const sobreFestival = document.querySelector('.nosotros');
+function navegacionFija(){
+    const navbar = document.querySelector('.navbar');
+    const nosotros = document.querySelector('.nosotros-contenedor');
+    console.log(nosotros);
 
-//     document.addEventListener('scroll', function (){
+    // console.log(navbar.getBoundingClientRect().bottom);
+    console.log(nosotros.getBoundingClientRect().top);
 
-//         // Revisa si las coordenadas del scroll segun la constante
-//         // que se asigno => sobreFestival
+    document.addEventListener('scroll', function (){
 
-//         if(sobreFestival.getBoundingClientRect().bottom < 600){
-//             header.classList.add('fixed')
-//         }else{
-//             header.classList.remove('fixed');
-//         }
-//     });
+
+        if(nosotros.getBoundingClientRect().top <= 100){
+            navbar.classList.add('fixed');
+        }else{
+            navbar.classList.remove('fixed');
+        }
+    });  
     
-// }
+}
 
 // // function crearGaleria (){
 

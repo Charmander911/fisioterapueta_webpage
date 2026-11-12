@@ -3,7 +3,6 @@
 @use 'base/mixins' as m;
 
 .paquetes {
-    
     @include m.contenedor;
     box-sizing: border-box;
     padding: 4rem 2rem;
@@ -69,7 +68,51 @@
                 min-height: inherit;
                 transition: transform 0.7s ease;
                 transform-style: preserve-3d;
+                
+                .dorso1{
+                    overflow: hidden;
+                    &::before {
+                        content: url(/build/img/icons/circle-number-3.svg);
+                        position: absolute;
+                        top: 50px;
+                        right: 0;
+                        // width: 10px;
+                        transform: scale(5);
+                        overflow: hidden;
+                        object-fit: cover;
+                        opacity: .2;
+                    }
+                }
+                .dorso2{
+                    overflow: hidden;
+                    &::before {
+                        content: url(/build/img/icons/circle-number-6.svg);
+                        position: absolute;
+                        top: 50px;
+                        right: 0;
+                        // width: 10px;
+                        transform: scale(5);
+                        overflow: hidden;
+                        object-fit: cover;
+                        opacity: .2;
+                    }
+                }
+                .dorso3{
+                    overflow: hidden;
+                    &::before {
+                        content: url(/build/img/icons/circle-number-9.svg);
+                        position: absolute;
+                        top: 50px;
+                        right: 0;
+                        // width: 10px;
+                        transform: scale(5);
+                        overflow: hidden;
+                        object-fit: cover;
+                        opacity: .2;
+                    }
+                }
             }
+            
 
             &:hover .carta-interior,
             &:focus-within .carta-interior {   // accesible con teclado
@@ -98,7 +141,10 @@
                 // Oculta la cara que mira hacia atrás
                 backface-visibility: hidden;
                 -webkit-backface-visibility: hidden;
+                
             }
+            
+            
 
             // La cara trasera empieza girada
             .carta-dorso {
@@ -211,8 +257,10 @@
                     outline-offset: 4px;
                 }
             }
-        }
 
+            
+        }
+        
     
         
 

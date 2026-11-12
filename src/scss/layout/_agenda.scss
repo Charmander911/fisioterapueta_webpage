@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 
 .agendas {
@@ -27,7 +28,7 @@
             height: auto;
             transition: transform .3s ease-in;
             overflow: hidden;
-            
+            border-left: 6px solid #00B7CB;
             .call{
                 pointer-events: none;
                 display: flex;
@@ -62,17 +63,20 @@
                 outline: none;
             }
             
+            // box-shadow: inset 2px 2px 8px 2px rgba(255,255,255, 1);
         }
 
     }
     .agenda div:first-child {
-        background: radial-gradient(ellipse at bottom right,orangered, red,red, firebrick);
+        // background: radial-gradient(ellipse at bottom right,orangered, red,red, firebrick);
         // filter: blur(1px);
+        background-color: v.$marino;
+        
+        // background: color.adjust( v.$marino ,  $lightness: 20%);
     }
     .agenda div:last-child {
-        // background-color: lightsalmon;
-        background: radial-gradient(ellipse at bottom left,orangered, red,red, firebrick);
-        // backdrop-filter: blur(5px);
+        background-color: v.$marino;
+        
     }
     
 }

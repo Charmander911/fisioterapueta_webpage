@@ -55,27 +55,25 @@
                 min-width: 0;
                 padding: 2rem;
                 color: v.$negro;
-
+                font-family: v.$Fuente_secundaria;
                 display: flex;
                 flex-direction: column;
                 text-transform: uppercase;
                 overflow-wrap: anywhere;
 
                 .span0 {
-                    font-family: v.$Fuente_tercera;
                     font-size: 1.4rem;
                 }
 
                 .span1 {
-                    font-family: v.$Fuente_principal;
+                    
                     font-weight: bolder;
-                    font-size: clamp(2.5rem, 8vw, 6rem);
+                    font-size: clamp(2.5rem, 8vw, 20rem);
                     line-height: 1.1;
                     overflow-wrap: anywhere;
                 }
 
                 .span2 {
-                    font-family: v.$Fuente_principal;
                     font-size: clamp(1.2rem, 3vw, 2rem);
                     margin-top: 1rem;
                 }
@@ -135,15 +133,22 @@
                 padding: 3rem 5rem;
 
                 .span0 {
-                    font-size: 1.5rem;
+                    font-size: 2.5rem;
+                    color: v.$dorado;
                 }
 
                 .span1 {
-                    font-size: clamp(4rem, 5vw, 6rem);
+                    font-size: clamp(4rem, 6vw, 15rem);
+                    background-image: linear-gradient(to right, v.$dorado, v.$naranja);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
                 }
 
                 .span2 {
                     font-size: 2.5rem;
+                    color: v.$dorado;
+                    // margin-left: 10px;
                 }
             }
         }
