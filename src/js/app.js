@@ -17,12 +17,6 @@ function scrollNavBar(){
     });
 }
 
-
-
-
-
-
-
 function navegacionFija(){
     const navbar = document.querySelector('.navbar');
     const nosotros = document.querySelector('.nosotros-contenedor');
