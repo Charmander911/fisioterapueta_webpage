@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function (){
-    // console.log('DOM fully loaded and parsed');
+    console.log('DOM fully loaded and parsed');
     scrollNavBar();
     navegacionFija();
 });
